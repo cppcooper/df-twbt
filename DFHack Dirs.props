@@ -2,10 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <dfhack>C:\Users\japam\source\repos\dfhack</dfhack>
-    <dfhackver>0.44.09-r1</dfhackver>
+    <dfhack>D:\Home\Documents\GitHub\dfhack</dfhack>
+    <dfhackver>0.47.05-alpha0</dfhackver>
     <twbt_ver>6.xx</twbt_ver>
-    <dfvernum>04409</dfvernum>
+    <dfvernum>04705</dfvernum>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
