@@ -169,9 +169,9 @@ struct dungeonmode_hook : public df::viewscreen_dungeonmodest
                         const int tile = x * r->gdimy + y, stile = tile * 4;
                         unsigned char ch = gscreen[stile+0];
 
-                        // Continue if the tile is not empty and doesn't look like a ramp
-                        if (ch != 0 && ch != 31)
-                            continue;
+                        //// Continue if the tile is not empty and doesn't look like a ramp
+                        //if (ch != 0 && ch != 31)
+                        //    continue;
 
                         int xx = *df::global::window_x + x;
                         int yy = *df::global::window_y + y;

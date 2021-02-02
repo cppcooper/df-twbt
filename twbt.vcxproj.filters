@@ -16,6 +16,8 @@
     <Library Include="$(dfhack)\build\win64\VC2015\library\Release\SDL.lib">
       <Filter>Libs</Filter>
     </Library>
+    <Library Include="libpng\libpng_static.lib" />
+    <Library Include="libpng\zlibstatic.lib" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Modules">

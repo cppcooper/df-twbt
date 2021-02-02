@@ -34,20 +34,22 @@ static void write_tile_vertexes_oblique(GLfloat x, GLfloat y, GLfloat *vertex, f
     vertex[11] = y/2.5 + d*0.1 + 1;
 }
 
-static void write_tile_vertexes(GLfloat x, GLfloat y, GLfloat *vertex, float d)
+static void write_tile_vertexes(GLfloat x, GLfloat y, GLfloat* vertex, float d, int dim_x)
 {
-    vertex[0]  = x;   // Upper left
-    vertex[1]  = y;
-    vertex[2]  = x + 1; // Upper right
-    vertex[3]  = y;
-    vertex[4]  = x;   // Lower left
-    vertex[5]  = y + 1;
-    vertex[6]  = x;   // Lower left again (triangle 2)
-    vertex[7]  = y + 1;
-    vertex[8]  = x + 1; // Upper right
-    vertex[9]  = y;
-    vertex[10] = x + 1; // Lower right
-    vertex[11] = y + 1;
+    GLfloat origin_x = x * 0.5 - y * 0.5 + dim_x * 0.5;
+    GLfloat origin_y = y * 0.25 + x * 0.25 + d * 0.5;
+    vertex[0] = origin_x;   // Upper left
+    vertex[1] = origin_y;
+    vertex[2] = origin_x + 1; // Upper right
+    vertex[3] = origin_y;
+    vertex[4]  = origin_x;   // Lower left
+    vertex[5]  = origin_y + 1;
+    vertex[6]  = origin_x;   // Lower left again (triangle 2)
+    vertex[7]  = origin_y + 1;
+    vertex[8]  = origin_x + 1; // Upper right
+    vertex[9]  = origin_y;
+    vertex[10] = origin_x + 1; // Lower right
+    vertex[11] = origin_y + 1;
 }
 
 renderer_cool::renderer_cool()
@@ -121,6 +123,14 @@ void renderer_cool::update_map_tile(int x, int y)
 
         // for oblique
         //write_tile_vertexes(x, y, gvertexes + 6 * 2 * tile, d);
+        write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile * 6 + 0), d, gdimx);
+        write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile * 6 + 1), d, gdimx);
+        write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile * 6 + 2), d, gdimx);
+        write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile * 6 + 3), d, gdimx);
+        write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile * 6 + 4), d, gdimx);
+        write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile * 6 + 5), d, gdimx);
+
+
 
         depth[tile] = !gscreen[tile*4] ? 0x7f : d; //TODO: no need for this in fort mode
 
@@ -670,12 +680,12 @@ void renderer_cool::init_buffers_and_coords(int tiles, int extra_tiles)
     {
         for (GLfloat y = 0; y < gdimy; y++, tile++)
         {
-            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+0), 0);
-            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+1), 0);
-            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+2), 0);
-            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+3), 0);
-            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+4), 0);
-            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+5), 0);
+            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+0), 0, gdimx);
+            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+1), 0, gdimx);
+            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+2), 0, gdimx);
+            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+3), 0, gdimx);
+            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+4), 0, gdimx);
+            write_tile_vertexes(x, y, gvertexes + 6 * 2 * (tile*6+5), 0, gdimx);
         }
     }    
 }
