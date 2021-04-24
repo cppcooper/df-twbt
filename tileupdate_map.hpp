@@ -124,7 +124,7 @@ static void apply_override (texture_fullid &ret, override &o, unsigned int seed)
     }
 }
 
-static void write_tile_arrays_map(renderer_cool *r, int x, int y, GLfloat *fg, GLfloat *bg, GLfloat *tex, GLfloat *tex_bg, GLfloat *fg_top, GLfloat *tex_top)
+static void write_tile_arrays_map(renderer_cool *r, int x, int y, int z, GLfloat *fg, GLfloat *bg, GLfloat *tex, GLfloat *tex_bg, GLfloat *fg_top, GLfloat *tex_top)
 {
     struct texture_fullid ret;
     const int tile = x * r->gdimy + y;        
@@ -377,7 +377,7 @@ static void write_tile_arrays_map(renderer_cool *r, int x, int y, GLfloat *fg, G
     }    
 }
 
-static void write_tile_arrays_under(renderer_cool *r, int x, int y, GLfloat *fg, GLfloat *bg, GLfloat *tex, GLfloat *tex_bg, GLfloat *fg_top, GLfloat *tex_top)
+static void write_tile_arrays_under(renderer_cool *r, int x, int y, int z, GLfloat *fg, GLfloat *bg, GLfloat *tex, GLfloat *tex_bg, GLfloat *fg_top, GLfloat *tex_top)
 {
     struct texture_fullid ret;
     const int tile = x * r->gdimy + y;        

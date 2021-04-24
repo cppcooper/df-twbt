@@ -178,6 +178,7 @@ static color_ostream *out2;
 static df::item_flags bad_item_flags;
 
 static int maxlevels = 0;
+static bool true_multilevel = false; //Set for completely re-rendering each level in multi-level.
 static bool multi_rendered;
 static float fogdensity = 0.15f;
 static float fogstart = 0;

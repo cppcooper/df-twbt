@@ -96,7 +96,7 @@ void renderer_cool::update_tile(int x, int y)
     write_tile_arrays_text(this, x, y, _fg, _bg, _tex);
 }
 
-void renderer_cool::update_map_tile(int x, int y)
+void renderer_cool::update_map_tile(int x, int y, int z)
 {
     const int tile = x * gdimy + y;
 
@@ -114,8 +114,8 @@ void renderer_cool::update_map_tile(int x, int y)
     GLfloat *_fg_top        = gfg  + (tile*6+5) * 4 * 6;
     GLfloat *_tex_top       = gtex + (tile*6+5) * 2 * 6;
 
-    write_tile_arrays_under(this, x, y, _fg_under, _bg_under, _tex_under, _tex_bg_under, _fg_top_under, _tex_top_under);
-    write_tile_arrays_map(this, x, y, _fg, _bg, _tex, _tex_bg, _fg_top, _tex_top);
+    write_tile_arrays_under(this, x, y, z, _fg_under, _bg_under, _tex_under, _tex_bg_under, _fg_top_under, _tex_top_under);
+    write_tile_arrays_map(this, x, y, z, _fg, _bg, _tex, _tex_bg, _fg_top, _tex_top);
 
     if (maxlevels)
     {
