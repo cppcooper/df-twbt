@@ -144,7 +144,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <OutputFile>dist\$(dfhackver)\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>D:\DwarfFortress\df_47_05_win\hack\plugins\$(TargetName)$(TargetExt)</OutputFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
